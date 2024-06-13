@@ -1,0 +1,203 @@
+<!-- <?php
+include_once "../head.php";
+// include_once "adminLayout/adminHeader.php";
+// if (!isset($_SESSION['admin_name'])) {
+//     header("Location: error.php"); // Redirect to the login page
+//     exit();
+// }
+
+$query = "SELECT * from destination";
+$result = mysqli_query($connection, $query);
+
+$destinationCount = 0;
+?>
+
+<?php
+
+if (isset($_POST["create"])) {
+    $destination_name = $_POST['destination_name'];
+    $destination_location = $_POST['destination_location'];
+    $destination_img = $_FILES['destination_img']['name'];
+
+    // File Upload Handling
+    $targetDirectory = "../upload/"; // Directory where you want to store uploaded images
+    $targetFile = $targetDirectory . basename($_FILES["destination_img"]["name"]);
+
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    // Check if image file is a actual image or fake image
+    $check = getimagesize($_FILES["destination_img"]["tmp_name"]);
+    if ($check !== false) {
+        $uploadOk = 1;
+        // Check if file already exists
+        if (file_exists($targetFile)) {
+            // echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        } else {
+            // Check file size (example: max 5MB)
+            if ($_FILES["destination_img"]["size"] > 5000000) {
+                // echo "Sorry, your file is too large.";
+                $uploadOk = 0;
+            } else {
+                // Allow certain file formats
+                $allowedExtensions = ["jpg", "jpeg", "png", "gif", "webp"];
+                if (!in_array($imageFileType, $allowedExtensions)) {
+                    // echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    $uploadOk = 0;
+                } else {
+                    // Move the uploaded file from temporary location to your desired directory
+                    if (move_uploaded_file($_FILES["destination_img"]["tmp_name"], $targetFile)) {
+                        // echo "The file " . basename($_FILES["destination_img"]["name"]) . " has been uploaded.";
+                        $destination_img = $targetFile;  // Store this path in your database
+                    } else {
+                        echo "Sorry, there was an error uploading your file.";
+                    }
+                }
+            }
+        }
+    } else {
+        // echo "File is not an image.";
+        $uploadOk = 0;
+    }
+
+    // Check if the file was uploaded successfully
+    if (isset($_FILES["destination_img"]) && $_FILES["destination_img"]["error"] == 0) {
+        $targetDirectory = "../upload/"; // Directory where you want to store uploaded images
+        $targetFile = $targetDirectory . basename($_FILES["destination_img"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        // ... (rest of the code remains unchanged)
+
+        // Insert into the database with $destination_img (assuming you have modified your table structure to include destination_img)
+        $sql = "INSERT INTO `destination` (destination_name, destination_location, destination_img)
+        VALUES ('$destination_name', '$destination_location', '$destination_img')";
+
+        $result = mysqli_query($connection, $sql);
+
+        if ($result) {
+            // header ('Location: login.php');
+            // exit;
+
+            // Display Spinner and Redirect
+            echo '<div class="d-flex flex-column justify-content-center align-items-center bg-danger" style="height: 100vh;z-index:999; position:absolute; width:100%;height:135vh; padding-bottom:40vh;">
+                    <h3>Creating destination</h3>
+                    <div class="spinner-border p-4 mt-3 mb-5" role="status">
+                    <span class="sr-only p-3 mb-5"></span>
+                    </div>
+                    </div>';
+
+            echo '<script>
+                    // Redirect to the main page after 3 seconds
+                    setTimeout(function() {
+                    window.location.href = "destination.php";
+                    }, 1000); // 1000 milliseconds (1 second) delay before redirection
+                    </script>';
+        } else {
+            die(mysqli_error($connection));
+        }
+    } else {
+        echo "No file uploaded or an error occurred while uploading.";
+    }
+}
+?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../css/output.css">
+</head>
+
+<body>
+    <main class="bg-blue-100 p-10 min-h-screen">
+        <!-- <?php
+        // include_once "destinationAdd.php";
+        ?> -->
+                
+        <form method="POST" enctype="multipart/form-data" class="bg-white p-5 max-w-screen-lg mx-auto rounded-3xl">   
+            <div class="flex flex-col gap-5">
+                <input required type="text" name="destination_name" class="bg-blue-200 p-2 rounded-s-full rounded-e-full">
+                <input required type="text" name="destination_location" class="bg-blue-200 p-2 rounded-s-full rounded-e-full">
+                <input required type="file" name="destination_img" id="destination_img" class="bg-blue-200 p-2 rounded-s-full rounded-e-full">
+                <button type="submit" class="bg-blue-500 p-2 rounded-s-full rounded-e-full" name="create">Create</button>
+            </div>
+        </form>
+
+
+        <div class="bg-white m-10 p-10 rounded-3xl grid grid-cols-5 gap-y-5">
+            <div class="bg-blue-200 p-5 rounded-s-full">No</div>
+            <div class="bg-cyan-200 p-5">Name</div>
+            <div class="bg-blue-200 p-5">Location</div>
+            <div class="bg-cyan-200 p-5">Photo</div>
+            <div class="bg-blue-200 p-5 rounded-e-full"></div>
+            <?php
+                while ($row = mysqli_fetch_assoc($result)) {
+                $destinationCount += 1;
+            ?>
+            <div class="bg-blue-200 p-5 rounded-s-full"><?php echo $destinationCount ?></div>
+            <div class="bg-cyan-200 p-5"><?php echo $row['destination_name'] ?></div>
+            <div class="bg-blue-200 p-5"><?php echo $row['destination_location'] ?></div>
+            <div class="bg-cyan-200 p-5"><img src="../upload/<?php echo $row['destination_img']; ?>" alt="destination Image" class="destination_photoDisplay"></div>
+            <div class="bg-blue-200 p-5 rounded-e-full">
+                <a href="destinationEdit.php?editId=<?php echo $row['destination_id']; ?>" class="bg-blue-600 text-white py-2 px-4 mx-1 rounded-s-full rounded-e-full">Edit</a>
+                <a href="destinationDelete.php?deleteId=<?php echo $row['destination_id']; ?>" class="bg-red-600 text-white py-2 px-4 mx-1 rounded-s-full rounded-e-full">Delete</a>
+            </div>
+            <?php
+                }
+            ?>
+            <div class="col-span-4 bg-blue-200">Total</div>
+            <div class="col-span-1 bg-cyan-200"><?php echo $destinationCount ?></div>
+        </div>
+
+
+        <!-- destination list  -->
+        <div class="bg-white rounded-3xl p-10 m-10">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <h1 class="text-center">destination Table</h1>
+                        <div class="card-body table-responsive">
+                            <table class="table table-bordered fs-5">
+                                <thead>
+                                    <tr class="border-secondary border-2">
+                                        <th class="bg-secondary-subtle">No</th>
+                                        <th>destination Name</th>
+                                        <th>destination Price</th>
+                                        <th>destination Photo</th>
+                                    </tr>
+                                    <?php
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        $destinationCount += 1;
+                                    ?>
+                                        <tr class="border-secondary border-2">
+                                            <td class="bg-secondary-subtle"><?php echo $destinationCount ?></td>
+                                            <td><?php echo $row['destination_name'] ?></td>
+                                            <td><?php echo $row['destination_location'] ?></td>
+
+                                            <!-- ... Inside the while loop to fetch destination details ... -->
+                                            <!-- ... Other columns ... -->
+                                            <td></td>
+                                            <td class="w-100 border-0 d-flex align-items-center justify-content-center h-100">
+                                                <a href="destinationEdit.php?editId=<?php echo $row['destination_id']; ?>" class="btn m-2 btn-outline-primary">Edit</a>
+                                                <a href="destinationDelete.php?deleteId=<?php echo $row['destination_id']; ?>" class="btn m-2 btn-outline-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-2 border-secondary">
+                                        <td class="bg-secondary-subtle fs-4 p-3" colspan="4">Total destination</td>
+                                        <td class="fs-4 p-3"><?php echo $destinationCount ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

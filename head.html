@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aireon : Explore the unlimitness</title>
+<link rel="icon" href="img/logo.svg">
+<link rel="icon" href="../img/logo.svg">
+<link rel="stylesheet" href="css/output.css">
+<link rel="stylesheet" href="../css/output.css">
+
+<?php
+    $HOSTNAME = 'localhost';
+    $USERNAME = 'root';
+    $PASSWORD = '';
+    $DATABASE = 'aireon';
+
+    $connection = mysqli_connect($HOSTNAME, $USERNAME, $PASSWORD, $DATABASE);
+
+    if(!$connection) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+?>

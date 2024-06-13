@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- npx tailwindcss -i ./css/input.css -o ./css/output.css --watch -->
+<html lang="en">
+
+<head>
+	<!-- <?php 
+		include_once ("head.php");
+		include_once ("layout/header.php");
+    ?> -->
+	<title>Aireon </title>
+	<link rel="stylesheet" href="css/output.css">
+</head>
+
+<body>
+
+	<!-- navigation bar -->
+	<nav
+	class="fixed z-50 w-full top-0 left-0 xl:px-20 lg:px-14 md:px-10 sm:px-8 p-4 flex items-center justify-between bg-white text-sky-800 font-semibold border-b border-gray-50/5">
+	<!-- left side -->
+	<div class="flex gap-8 items-center">
+		<a href="" class="text-2xl ps-2 text-sky-500 flex items-center font-semibold">
+			<div class="-rotate-45">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.2"
+					stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke="rgb(14 165 233)"
+						d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+				</svg>
+			</div>
+			Aireon
+		</a>
+		<div class="lg:flex gap-8 hidden">
+			<a href="#top" class="hover:text-sky-500">Home</a>
+			<a href="#destination" class="hover:text-sky-500">Destination</a>
+			<a href="#blog" class="hover:text-sky-500">Blogs</a>
+			<a href="#about" class="hover:text-sky-500">About</a>
+			<a href="#book" class="hover:text-sky-500">Book</a>
+		</div>
+	</div>
+	<!-- right side -->
+	<div class="lg:flex gap-3 hidden">
+		<a href="" class="hover:scale-125 scale-110 duration-100">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+				class="w-6 h-6">
+				<path stroke="rgb(14 165 233)" stroke-linecap="round" stroke-linejoin="round"
+					d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+			</svg>
+		</a>
+		<a href="" class="hover:scale-125 scale-110 duration-100">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+				class="w-6 h-6">
+				<path stroke="rgb(14 165 233)" stroke-linecap="round" stroke-linejoin="round"
+					d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+			</svg>
+		</a>
+		<a href="" class="hover:scale-125 scale-110 duration-100">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+				class="w-6 h-6">
+				<path stroke="rgb(14 165 233)" stroke-linecap="round" stroke-linejoin="round"
+					d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+			</svg>
+		</a>
+	</div>
+	<!-- menu button -->
+	<button class="lg:hidden scale-125 hover:rotate-180 duration-500" id="menuBtn">
+		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+			class="w-6 h-6">
+			<path stroke="rgb(14 165 233)" stroke-linecap="round" stroke-linejoin="round"
+				d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+		</svg>
+	</button>
+	<!-- menu -->
+	<div class="fixed top-0 left-0 h-full w-full bg-sky-500 translate-x-full duration-300 flex flex-col items-center justify-center" id="menu">
+		<button class="absolute top-5 right-5 scale-150 hover:rotate-180 duration-500" id="menuBtn2">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+				<path stroke-linecap="round" stroke="#fff"  stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+			</svg>
+		</button>
+
+		<a href="" class="text-2xl text-white flex items-center font-semibold">
+			<div class="-rotate-45">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(14 165 233)" viewBox="0 0 24 24" stroke-width="1.5"
+					stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round"
+						d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+				</svg>
+			</div>
+			Aireon
+		</a>
+		<div class="text-center flex flex-col pt-5 text-white">
+			<a href="#top" class="p-3 hover:text-sky-700">Home</a>
+			<a href="#destination" class="p-3 hover:text-sky-700">Destination</a>
+			<a href="#blog" class="p-3 hover:text-sky-700">Blogs</a>
+			<a href="#about" class="p-3 hover:text-sky-700">About</a>
+			<a href="#book" class="p-3 hover:text-sky-700">Book</a>
+		</div>
+	</div>
+	</nav>
+
+	<script>
+	const menuBtn = document.getElementById('menuBtn');
+	const menuBtn2 = document.getElementById('menuBtn2');
+	const menu = document.getElementById('menu');
+	menuBtn.addEventListener('click', function() {
+		menu.classList.remove('translate-x-full');
+	});
+	menuBtn2.addEventListener('click', function() {
+		menu.classList.add('translate-x-full');
+	});
+	</script>
+
+
+	<main>
+		<!-- hero -->
+		<section id="top" class="h-screen relative">
+			<img src="img/beach.webp" alt="" class="h-full w-full object-cover">
+			<div class="absolute z-10 top-40 left-0 w-full text-center text-white">
+				<div class="text-6xl font-bold">Where to<span class="text-sky-500 font-bold">?</span></div>
+				<div class="">The <span class="text-sky-500 font-bold">#1</span> all-inclusive hotel booking website</div>	
+			</div>
+			<div class="absolute top-0 left-0 w-full h-full p-5 flex items-center justify-center">
+				<div class="relative p-5 md:p-8 bg-white border grid gap-x-5 gap-y-3 grid-cols-6 md:grid-cols-12 rounded-xl">
+					<div class="col-span-6 md:col-span-5">
+						<div class="text-lg font-semibold">Destination</div>
+						<select name="tour" id="" class="w-full hover:cursor-pointer hover:border-gray-400/80 duration-300 border-b border-gray-300/40 font-semibold p-1 text-sky-500 block">
+							<option hidden>To</option>
+							<option value="">Mandalay</option>
+							<option value="">Yangon</option>
+							<option value="">Naypyitaw</option>
+							<option value="">Tungyi</option>
+						</select>
+					</div>
+					<div class="col-span-3">
+						<div class="text-lg font-semibold">Check In*</div>
+						<input class="hover:cursor-pointer hover:border-gray-400/80 duration-300 outline-none border-b border-gray-300/40 font-semibold p-1 text-sky-500 block" type="date" name="" id="">
+					</div> 
+					<div class="col-span-3">
+						<div class="text-lg font-semibold">Check Out*</div>
+						<input class="hover:cursor-pointer hover:border-gray-400/80 duration-300 outline-none border-b border-gray-300/40 font-semibold p-1 text-sky-500 block" type="date" name="" id="">
+					</div> 
+					<div class="col-span-6 md:col-span-1 h-full">
+						<div class="flex items-center justify-end md:justify-center h-full">
+							<button class="bg-sky-500 hover:bg-sky-600 p-2 rounded-lg">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+								class="w-6 h-6">
+								<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+								d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- All-inclusive Hotel -->
+		<section class="py-5 sm:py-14 px-5 md:px-12 lg:px-24 text-sky-950 mt-5">
+			<div class="text-center py-2 ">
+				<div class="text-3xl md:text-4xl lg:text-5xl font-bold">What is an</div>
+				<div class="text-3xl md:text-4xl lg:text-5xl font-bold">
+					<span class="text-sky-500">All-inclusive</span> Hotel?
+				</div>
+				<div class="lg:text-lg py-5 mx-auto">No more carrying your wallet around on vacation! <br> Our resorts include everything you need in one low price:</div>
+			</div>
+			<div class="sm:p-10 grid grid-cols-5 gap-2 md:gap-5">
+				<div class="md:p-2 shadow-xl shadow-black/5 md:rounded-3xl">
+					<img src="img/meals.webp" alt="" class="w-full rounded-lg md:rounded-2xl">
+					<div class="hidden md:block font-semibold lg:text-lg lg:font-bold p-1">Meals</div>
+				</div>
+				<div class="md:p-2 shadow-xl shadow-black/5 md:rounded-3xl">
+					<img src="img/drinks.webp" alt="" class="w-full rounded-lg md:rounded-2xl">
+					<div class="hidden md:block font-semibold lg:text-lg lg:font-bold p-1">Drinks</div>
+				</div>
+				<div class="md:p-2 shadow-xl shadow-black/5 md:rounded-3xl">
+					<img src="img/alcohol.webp" alt="" class="w-full rounded-lg md:rounded-2xl">
+					<div class="hidden md:block font-semibold lg:text-lg lg:font-bold p-1">Alcohol</div>
+				</div>
+				<div class="md:p-2 shadow-xl shadow-black/5 md:rounded-3xl">
+					<img src="img/activities.webp" alt="" class="w-full rounded-lg md:rounded-2xl">
+					<div class="hidden md:block font-semibold lg:text-lg lg:font-bold p-1">Activities</div>
+				</div>
+				<div class="md:p-2 shadow-xl shadow-black/5 md:rounded-3xl">
+					<img src="img/wellness.webp" alt="" class="w-full rounded-lg md:rounded-2xl">
+					<div class="hidden md:block font-semibold lg:text-lg lg:font-bold p-1">Wellness</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Why work with us -->
+		<section id="about" class="py-5 sm:py-14 px-5 md:px-12 lg:px-24 text-sky-950 mt-5">
+			<div class="text-3xl md:text-4xl lg:text-5xl font-bold sm:py-2 text-center">Why work with us?</div>
+			<div class="py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:mt-5">
+				<div class="text-center">
+					<div class="flex items-center justify-center p-5 scale-125">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#338cdf" viewBox="0 0 256 256"><path d="M144,157.68a68,68,0,1,0-71.9,0c-20.65,6.76-39.23,19.39-54.17,37.17a8,8,0,1,0,12.24,10.3C50.25,181.19,77.91,168,108,168s57.75,13.19,77.87,37.15a8,8,0,0,0,12.26-10.3C183.18,177.07,164.6,164.44,144,157.68ZM56,100a52,52,0,1,1,52,52A52.06,52.06,0,0,1,56,100Zm196.25,43.07-4.66-2.69a23.6,23.6,0,0,0,0-8.76l4.66-2.69a8,8,0,1,0-8-13.86l-4.67,2.7a23.92,23.92,0,0,0-7.58-4.39V108a8,8,0,0,0-16,0v5.38a23.92,23.92,0,0,0-7.58,4.39l-4.67-2.7a8,8,0,1,0-8,13.86l4.66,2.69a23.6,23.6,0,0,0,0,8.76l-4.66,2.69a8,8,0,0,0,8,13.86l4.67-2.7a23.92,23.92,0,0,0,7.58,4.39V164a8,8,0,0,0,16,0v-5.38a23.92,23.92,0,0,0,7.58-4.39l4.67,2.7a7.92,7.92,0,0,0,4,1.07,8,8,0,0,0,4-14.93ZM216,136a8,8,0,1,1,8,8A8,8,0,0,1,216,136Z"></path></svg>
+					</div>
+					<div class="font-bold text-xl">30years of Experience</div>
+					<div class="text-lg">Long time in the business of creating unforgettable vacation experiences.</div>
+				</div>
+				<div class="text-center">
+					<div class="flex items-center justify-center p-5 scale-125">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#338cdf" viewBox="0 0 256 256"><path d="M201.89,54.66A103.43,103.43,0,0,0,128.79,24H128A104,104,0,0,0,24,128v56a24,24,0,0,0,24,24H64a24,24,0,0,0,24-24V144a24,24,0,0,0-24-24H40.36A88.12,88.12,0,0,1,190.54,65.93,87.39,87.39,0,0,1,215.65,120H192a24,24,0,0,0-24,24v40a24,24,0,0,0,24,24h24a24,24,0,0,1-24,24H136a8,8,0,0,0,0,16h56a40,40,0,0,0,40-40V128A103.41,103.41,0,0,0,201.89,54.66ZM64,136a8,8,0,0,1,8,8v40a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V136Zm128,56a8,8,0,0,1-8-8V144a8,8,0,0,1,8-8h24v56Z"></path></svg>				
+					</div>
+					<div class="font-bold text-xl">US-based support</div>
+					<div class="text-lg">Customer support with a 24/7 emergency response team</div>
+				</div>
+				<div class="text-center">
+					<div class="flex items-center justify-center p-5 scale-125">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#338cdf" viewBox="0 0 256 256"><path d="M246,98.73l-56-64A8,8,0,0,0,184,32H72a8,8,0,0,0-6,2.73l-56,64a8,8,0,0,0,.17,10.73l112,120a8,8,0,0,0,11.7,0l112-120A8,8,0,0,0,246,98.73ZM222.37,96H180L144,48h36.37ZM74.58,112l30.13,75.33L34.41,112Zm89.6,0L128,202.46,91.82,112ZM96,96l32-42.67L160,96Zm85.42,16h40.17l-70.3,75.33ZM75.63,48H112L76,96H33.63Z"></path></svg>
+					</div>
+					<div class="font-bold text-xl">Best-price guarantee</div>
+					<div class="text-lg">If you find a better deal on a resort online, we'll price-match it!</div>
+				</div>
+				<div class="text-center">
+					<div class="flex items-center justify-center p-5 scale-125">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#338cdf" viewBox="0 0 256 256"><path d="M136,72v43.05l36.42-18.21a8,8,0,0,1,7.16,14.31l-48,24A8,8,0,0,1,120,128V72a8,8,0,0,1,16,0Zm-8,144a88,88,0,1,1,88-88,8,8,0,0,0,16,0A104,104,0,1,0,128,232a8,8,0,0,0,0-16Zm103.73,5.94a8,8,0,1,1-15.46,4.11C213.44,215.42,203.46,208,192,208s-21.44,7.42-24.27,18.05A8,8,0,0,1,160,232a8.15,8.15,0,0,1-2.06-.27,8,8,0,0,1-5.67-9.79,40,40,0,0,1,17.11-23.32,32,32,0,1,1,45.23,0A40,40,0,0,1,231.73,221.94ZM176,176a16,16,0,1,0,16-16A16,16,0,0,0,176,176Z"></path></svg>				
+					</div>
+					<div class="font-bold text-xl">Free cancellation</div>
+					<div class="text-lg">Free 24-hour cancellation for everyone — on select resorts</div>
+				</div>
+			</div>
+			<div class="pt-8 flex justify-center">
+				<a href="" class="py-3 px-10 bg-sky-500 rounded-s-full rounded-e-full hover:bg-sky-600 text-white font-bold">About Us</a>
+			</div>
+		</section>
+
+		<!-- Top Resorts -->
+		<section id="book" class="py-5 sm:py-14 sm:px-5 md:px-12 lg:px-24 text-sky-950">
+			<div class="text-3xl md:text-4xl lg:text-5xl font-bold py-2 text-center">Our top resorts</div>
+			<div class="p-10 grid grid-cols-1 md:grid-cols-3 px-5 gap-5 pt-10">
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/palladium.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">TRS Cap Cana</div>
+						<div class="text-lg">Punta Cana, DR</div>
+						<div class="flex items-center">
+							<div class="scale-75 inline-block">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="orange" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></svg>
+							</div>
+							<span class="font-bold">4.6</span>
+							<span class="text-gray-500">- 349 reviews</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/arbisoftimages-645819-SEVCU_MasterSuite_Bedroom_5-image.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">Secrets the Vine</div>
+						<div class="text-lg">Cancun, Mexico</div>
+						<div class="flex items-center">
+							<div class="scale-75 inline-block">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="orange" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></svg>
+							</div>
+							<span class="font-bold">4.6</span>
+							<span class="text-gray-500">- 349 reviews</span>
+						</div>
+					</div>
+				</div>
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/174730876.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">Breathless Cabo</div>
+						<div class="text-lg">Cabo San Lucas, Mexico</div>
+						<div class="flex items-center">
+							<div class="scale-75 inline-block">
+								<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="orange" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></svg>
+							</div>
+							<span class="font-bold">4.6</span>
+							<span class="text-gray-500">- 349 reviews</span>
+						</div>
+					</div>
+				</div>
+		</section>
+
+		<!-- Top Destination -->
+		<section id="destination" class="py-5 sm:py-14 sm:px-5 md:px-12 lg:px-24 text-sky-950">
+			<div class="text-3xl md:text-4xl lg:text-5xl font-bold py-2 text-center">Our top destinations</div>
+			<div class="p-10 grid grid-cols-1 md:grid-cols-3 px-5 gap-5 pt-10">
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/Cancun.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">Cancun, Mexico</div>
+						<div class="text-lg">Fun-filled beaches and incredible excursions in this vacation hotspot!</div>
+					</div>
+				</div>
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/PUJ.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">Punta Cana, DR</div>
+						<div class="text-lg">Drench yourself in blue Caribbean waters at the best all-inclusives.</div>
+					</div>
+				</div>
+				<div class="p-2 cursor-pointer shadow-xl shadow-black/5 rounded-3xl border border-gray-400/10 hover:shadow-black/10 duration-300">
+					<img src="img/Montego Bay.webp" alt="" class="w-full rounded-2xl h-56 lg:h-64 object-cover">
+					<div class="p-2">
+						<div class="text-2xl font-bold">Montego Bay, Jamaica</div>
+						<div class="text-lg">An island filled with luscious biodiversity waiting to be explored.</div>
+					</div>
+				</div>
+			</div>
+			<div class="pt-8 flex justify-center">
+				<a href="" class="py-3 px-10 bg-sky-500 rounded-s-full rounded-e-full hover:bg-sky-600 text-white font-bold">View All</a>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="py-20 bg-gray-100 px-5 md:px-12 lg:px-24">
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-y-5">
+			<div class="col-span-2">
+				<div class="text-2xl text-sky-500 flex items-center font-semibold">
+					<div class="-rotate-45">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="rgb(14 165 233)" viewBox="0 0 24 24" stroke-width="1.5"
+							stroke="currentColor" class="w-6 h-6">
+							<path stroke-linecap="round" stroke-linejoin="round"
+								d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+						</svg>
+					</div>
+					Aireon
+				</div>
+				<div class="flex py-2 pt-6">
+					<a href="" class="me-3 hover:scale-125 duration-100">
+						<svg xmlns='http://www.w3.org/2000/svg' width='32px' height='32px' viewBox='0 0 24 24'><title>facebook_fill</title><g id="facebook_fill" fill='none' fill-rule='nonzero'><path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/><path fill='#09244BFF' d='M13.5 21.888C18.311 21.164 22 17.013 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 5.013 3.689 9.165 8.5 9.888V15H9a1.5 1.5 0 0 1 0-3h1.5v-2A3.5 3.5 0 0 1 14 6.5h.5a1.5 1.5 0 0 1 0 3H14a.5.5 0 0 0-.5.5v2H15a1.5 1.5 0 0 1 0 3h-1.5v6.888Z'/></g></svg>
+					</a>
+					<a href="" class="me-3 hover:scale-125 duration-100">
+						<svg xmlns='http://www.w3.org/2000/svg' width='32px' height='32px' viewBox='0 0 24 24'><title>ins_fill</title><g id="ins_fill" fill='none' fill-rule='nonzero'><path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/><path fill='#09244BFF' d='M16 3a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8Zm-4 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm4.5-3.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z'/></g></svg>
+					</a>
+					<a href="" class="me-3 hover:scale-125 duration-100">
+						<svg xmlns='http://www.w3.org/2000/svg' width='32px' height='32px' viewBox='0 0 24 24'><title>twitter_fill</title><g id="twitter_fill" fill='none' fill-rule='nonzero'><path d='M24 0v24H0V0h24ZM12.593 23.258l-.011.002-.071.035-.02.004-.014-.004-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01-.017.428.005.02.01.013.104.074.015.004.012-.004.104-.074.012-.016.004-.017-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113-.013.002-.185.093-.01.01-.003.011.018.43.005.012.008.007.201.093c.012.004.023 0 .029-.008l.004-.014-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014-.034.614c0 .012.007.02.017.024l.015-.002.201-.093.01-.008.004-.011.017-.43-.003-.012-.01-.01-.184-.092Z'/><path fill='#09244BFF' d='M4.594 4.984a1 1 0 0 1 .941.429C7.011 7.572 8.783 8.47 10.75 8.674c.096-.841.323-1.672.75-2.404.626-1.074 1.644-1.864 3.098-2.156 2.01-.404 3.54.324 4.427 1.215l1.792-.335a1 1 0 0 1 1.053 1.478l-1.72 3.022c.157 4.361-1.055 7.405-3.639 9.502-1.37 1.112-3.332 1.743-5.485 1.938-2.17.196-4.623-.041-7.061-.753a1 1 0 0 1 .007-1.922c1.226-.349 2.16-.65 3.003-1.177-1.199-.636-2.082-1.468-2.707-2.416-.868-1.318-1.19-2.788-1.254-4.113-.064-1.325.127-2.553.329-3.438.115-.505.249-1.011.434-1.495a1 1 0 0 1 .818-.636Z'/></g></svg>
+					</a>
+				</div>
+				<div class="text-sm text-gray-500">© 2024 Copyright by Danial. <br>All rights reserved.</div>
+			</div>
+			<div class="col-span-1">
+				<div class="text-lg font-semibold">Quick Links</div>
+				<div class="flex flex-col pt-4">
+					<a href="" class="underline hover:text-sky-500">About US</a>
+					<a href="" class="underline hover:text-sky-500">Destinations</a>
+					<a href="" class="underline hover:text-sky-500">Support</a>
+				</div>
+			</div>
+			<div class="col-span-1">
+				<div class="text-lg font-semibold">Terms and Policies</div>
+				<div class="flex flex-col pt-4">
+					<a href="" class="underline hover:text-sky-500">Privacy Policy</a>
+					<a href="" class="underline hover:text-sky-500">Cookies Policy</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- <?php include_once ("layout/footer.php");?> -->
+</body>
+
+</html>
